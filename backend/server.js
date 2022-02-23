@@ -3,6 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
+const colors = require("colors");
+const connectDB = require("./config/db");
+connectDB();
 
 // CONFIGURATION
 const { errorHandler } = require("./middleware/errorMiddleware");
