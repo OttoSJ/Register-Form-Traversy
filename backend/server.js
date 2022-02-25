@@ -1,3 +1,5 @@
+// START SERVER BY RUNNING  **NPM RUN SERVER**
+
 // DEPENDENCIES
 require("dotenv").config();
 const express = require("express");
@@ -21,6 +23,7 @@ app.use(methodOverride("_method"));
 
 // ROUTES - LANDING PAGE
 app.use("/api/goals", require("./routes/goalRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
 
 // WILDCARD ROUTES
 app.use(errorHandler);
