@@ -52,6 +52,7 @@ function Register() {
         email,
         password,
       };
+      console.log(userData);
       dispatch(register(userData));
     }
   };
@@ -110,7 +111,7 @@ function Register() {
               id="password2"
               name="password2"
               value={password2}
-              placeholder="Confirm password2"
+              placeholder="Confirm password"
               onChange={onChange}
             />
           </div>
