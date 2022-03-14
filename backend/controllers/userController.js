@@ -32,6 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password: hashedPassword,
   });
+  console.log("number 1");
   if (user) {
     res.status(201).json({
       _id: user.id,
@@ -39,6 +40,7 @@ const registerUser = asyncHandler(async (req, res) => {
       email: user.email,
       token: generateToken(user._id),
     });
+    console.log("number 2");
   } else {
     res.status(400);
     throw new Error("Invalid user data");
@@ -70,12 +72,7 @@ const loginUser = asyncHandler(async (req, res) => {
 // ROUTE - GET /api/users/me
 // ACCESS - Private
 const getMe = asyncHandler(async (req, res) => {
-  const { _id, name, email } = await User.findById(req.user.id);
-  res.status(200).json({
-    id: _id,
-    name,
-    email,
-  });
+  res.status(200).json(req.user);
 });
 
 // Generate a token

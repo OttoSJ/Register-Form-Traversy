@@ -1,5 +1,6 @@
 // START SERVER BY RUNNING  **NPM RUN SERVER**
-// START BOTH FRONT AND BACK END BY RUNNING **NPM RUN CLIENT**
+// START  FRONT END BY RUNNING **NPM RUN CLIENT**
+// START BOTH RUN **NPM RUN DEV**
 
 // DEPENDENCIES
 require("dotenv").config();
@@ -20,7 +21,7 @@ const app = express();
 // MIDDELWARE
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(methodOverride("_method"));
+// app.use(methodOverride("_method"));
 
 // ROUTES - LANDING PAGE
 app.use("/api/goals", require("./routes/goalRoutes"));
@@ -28,15 +29,6 @@ app.use("/api/users", require("./routes/userRoutes"));
 
 // WILDCARD ROUTES
 app.use(errorHandler);
-
-// DATABASE CONNECTIONS
-// mongoose;
-// connect(process.env.MONGO_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
-//   .then(() => console.log("DB Connected"))
-//   .catch((err) => console.error(err));
 
 // LISTEN
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
