@@ -32,7 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password: hashedPassword,
   });
-  console.log("number 1");
+
   if (user) {
     res.status(201).json({
       _id: user.id,
@@ -40,7 +40,6 @@ const registerUser = asyncHandler(async (req, res) => {
       email: user.email,
       token: generateToken(user._id),
     });
-    console.log("number 2");
   } else {
     res.status(400);
     throw new Error("Invalid user data");
