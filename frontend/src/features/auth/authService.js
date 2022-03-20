@@ -23,7 +23,7 @@ const login = async (userData) => {
 };
 
 const logout = () => {
-  localStorage.removeItem("item");
+  localStorage.removeItem("user");
 };
 
 const authService = {
